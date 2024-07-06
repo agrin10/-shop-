@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="#" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Shopping Basket - Developed by Reza Geshani">
+    <link href="{{url_for('static' , filename='style/style.css')}}" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+شnuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+  </head>
+    <title>{% block title %}shop{% endblock title %}</title>
+</head>
+<body>
+    
+    <div class="header">
+    
+        <!-- Navigation -->
+        <nav class="navbar">
+            <header>
+                <div class="left-side">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                    <a href="#"><i class="fas fa-user"></i></a>
+                </div>
+                <div class="right-side">
+                    <nav>
+                        <a href="#">Home</a>
+                        <a href="url_for(show_product())">Product</a>
+                        <a href="#">Contact Us</a>
+                    </nav>
+                </div>
+            </header>
+        </nav>
+    </div>
+    {% block content %}
+    
+    {% endblock content %}
+    <script src="{{url_for('static' , filename='js/app.js')}}"></script>
+    
+
+
+</body>
+</html>

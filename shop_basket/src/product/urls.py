@@ -1,15 +1,7 @@
-from flask import Flask, render_template, jsonify,request
+from main import app
+from flask import Flask, render_template, request
 from werkzeug.exceptions import HTTPException
-from controller import retrive_alert_controlle
-import os
-
-app =Flask(__name__)
-
-@app.route('/')
-@app.route('/homepage')
-def index():
-    return render_template('index.html')
-
+from .controller import retrive_alert_controlle
 
 @app.route('/products' , methods=['GET'])
 def show_product():
@@ -17,7 +9,7 @@ def show_product():
         product_data=retrive_alert_controlle()
         return render_template('product.html' , product_data=product_data)
     else:
-        return "not the vailed methode"
+        return "Invalid method. Only GET is supported for this route."
 
 
 
@@ -26,9 +18,5 @@ def notfound(e):
     code = 404
     if isinstance(e, HTTPException):
         code = e.code
-    return render_template('404.html')
+    return render_template('404.html', error=e), code
 
-
-
-if __name__ == "__main__":
-    app.run(debug=True)

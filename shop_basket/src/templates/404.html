@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="shortcut icon" href="#" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Shopping Basket - Developed by Reza Geshani">
-    <link href="{{url_for('static' , filename='style/style.css')}}" rel="stylesheet" />
-    
-    <title>page not found</title>
-  </head>
-  <body class="boody">
-    <div class="container">
-    <h1>page not found</h1>
-    <h2>try again</h2>
-    
+{% extends "base.html" %}
+
+{% block title %}not found{% endblock title %}not found
+{% block content %}
+
+  <h1>page not found</h1>
+  <h2>try again</h2>
   
-  </body>
-</html>
+{% endblock content %}

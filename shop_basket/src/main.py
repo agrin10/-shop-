@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from product.controller import retrive_alert_controlle
+from product.controller import retrive_product_controlle
 from __init__ import creat_app
 
 app = creat_app()

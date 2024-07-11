@@ -1,13 +1,70 @@
 {% extends "base.html" %}
 
+{% block content %}
+<main class="main-container">
+           
+  <!-- ------------------ -->
+  <!-- home section start -->
+  <!-- ------------------ -->
+  <section class="home-section container">
+    <div class="home-section-img">
+      <img src="{{url_for('static' , filename='/images/homesection.png')}}" alt="" />
+    </div>
+    <div class="home-section-desc">
+      <h1>online shop agrin</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ab
+        eligendi nisi voluptatem, error fuga.lorem5 Lorem ipsum dolor sit
+        amet.
+      </p>
+      <button class="btn-shine">
+        <span>about us</span>
+      </button>
+    </div>
+  </section>
+  {% endblock content %}
+  <!-- ------------------ -->
+  <!-- home section end -->
+  <!-- ------------------ -->
 
-  <body>
-    <!-- Navigation -->
-  <div class="main-container">
-    {% block content %}
-    {% endblock content %}
-    <!-- Navigation -->
+  <!-- ------------------ -->
+  <!-- contact us start -->
+  <!-- ------------------ -->
+   {% block contact_us %}
+  <section class="container contact">
+    <div class="contact-img">
+      <img src="{{url_for('static' , filename='/images/contact us section.png')}}" alt="" />
+    </div>
+    
+    <div class="contact-form">
+      <h2>contact us</h2>
+      <form action="#" method="post">
+        <div class="name-box">
+          <input type="text" placeholder="First name" required autofocus />
+          <input type="text" placeholder="Last name" />
+        </div>
 
-    <!-- products -->
+        <div class="from-box">
+          <input type="text" placeholder="Phone" />
+          <input type="text" placeholder="City" />
+        </div>
+        
+        <div class="email">
+          <input type="email" name="" id="" required placeholder="Email"/>
+        </div>
+        <textarea name="" id="" placeholder="Description"></textarea>
+        
+        <button type="submit">send</button>
+      </form>
+    </div>
+  </section>
+  {% endblock contact_us %}
+  <!-- ------------------ -->
+  <!-- contact us end -->
+  <!-- ------------------ -->
+</main>
+
+
+
 
 

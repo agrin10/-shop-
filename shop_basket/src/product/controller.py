@@ -1,40 +1,23 @@
 from flask import Flask, jsonify , request ,session
-from db import products_data
+from product.model import Product
+from __init__ import db
 import uuid
-
-
-
+ 
 def retrive_product_controlle():
     response=[]
-    products_data_controller= products_data
-    for product in products_data_controller:
-        response.append(dict(product))
-    return jsonify(data=response)
+    products_data_controller= Product.query.all()
+    for products_data in products_data_controller:
+        response.append(products_data.toDict())
+    return jsonify(data=response) 
 
 
-def add_product(request):
+def add_product():
 
-    request_data=request.json
-    new_product = {
-        "id":str(uuid.uuid4()),
-        "title": request_data.get("name_pro"),
-        "price":request_data.get("price_pro"),
-        # "imageUrl":str(request_data.get("imageurl")),
-
-    }
-    
-    products_data.append(new_product)
-    return jsonify(data=products_data)
-
-    
-
-    
-    
-
-    
-   
-
-        
+    data_pro = request.json 
+    new_product = Product(id= uuid.uuid4() , title= data_pro['title'] , price=data_pro['price'])        
+    db.session.add(new_product)
+    db.session.commit()
+    return jsonify(message = "Added new product datas successfully!")       
 
         
 

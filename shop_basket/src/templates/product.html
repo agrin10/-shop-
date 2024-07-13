@@ -9,12 +9,11 @@
     </div>
     <!-- Single product -->
     <div class="products-center">
-        {% for product in product_data['data'] %}
+        {% for item in product_data['data'] %}
         <div class="product">
-            
             <div class="product-desc">
-                <p class="product-price">$ {{ product['price'] }}</p>
-                <p class="product-title">{{ product['title'] }}</p>
+                <p class="product-price">$ {{ item['price'] }}</p>
+                <p class="product-title">{{ item['title'] }}</p>
             </div>
             <button class="btn add-to-cart">
                 <i class="fas fa-shopping-cart"></i>
@@ -40,7 +39,3 @@
     </div>
 </section>
 {% endblock %}
-
-
-
-

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}upload{% endblock title %}
+
+    {% block content %}
+        <div class='add'>
+            <form action="/add" method="POST" enctype="multipart/form-data" class='add_form'>
+                <label for="name_pro">name of the peoduct:</label>
+                <input type="text" name="name_pro" id="name_pro" placeholder='enter the name'/>
+
+                <label for="price_pro">price of the product:</label>
+                <input type="text" name="price_pro" id="price_pro" placeholder='enter the price'/>
+
+                <input type="submit" name='submit' value='add product'/>
+                </form>
+
+            </form>
+        </div>
+    {% endblock content %}

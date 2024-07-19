@@ -9,33 +9,58 @@
     </div>
     <!-- Single product -->
     <div class="products-center">
-        {% for item in product_data['data'] %}
-        <div class="product">
-            <div class="product-desc">
-                <p class="product-price">$ {{ item['price'] }}</p>
-                <p class="product-title">{{ item['title'] }}</p>
-            </div>
-            <button class="btn add-to-cart">
-                <i class="fas fa-shopping-cart"></i>
-                Add to Cart
-            </button>
-        </div>
-        {% endfor %}
-    </div>
+      {% for item in product_data.items %}
+      <div class="product">
+          <div class="img-container">
+              <img src="{{ url_for('static', filename='images/' + item.image_path) }}" alt="{{ item.title }}">
+          </div>
+          <div class="product-desc">
+              <p class="product-price">$ {{ item.price }}</p>
+              <p class="product-title">{{ item.title }}</p>
+          </div>
+          <button class="btn add-to-cart">
+              <i class="fas fa-shopping-cart"></i>
+              Add to Cart
+          </button>
+      </div>
+      {% else %}
+      <p>No products available.</p>
+      {% endfor %}
+  </div>
 </section>
-<!-- Cart section -->
-<section class="cart-center">
-    <div class="backdrop"></div>
-    <div class="cart">
-        <h3 class="cart-title">Your Cart</h3>
-        <div class="cart-content">
-            <!-- Single item (you can add cart items here) -->
-        </div>
-        <div class="cart-footer">
-            <span class="cart-total">Total Price: $90</span>
-            <button class="btn clear-cart">Clear Cart</button>
-            <button class="btn cart-item-confirm">Confirm</button>
-        </div>
-    </div>
-</section>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+      {% if pagination.has_prev %}
+      <li class="page-item">
+          <a class="page-link" href="{{ url_for('show_product', page=pagination.prev_num) }}">Previous</a>
+      </li>
+      {% else %}
+      <li class="page-item disabled"><span class="page-link">Previous</span></li>
+      {% endif %}
+
+      {% for page_num in pagination.iter_pages() %}
+      {% if page_num %}
+      {% if page_num != pagination.page %}
+      <li class="page-item"><a class="page-link" href="{{ url_for('show_product', page=page_num) }}">{{ page_num }}</a></li>
+      {% else %}
+      <li class="page-item active" aria-current="page">
+          <span class="page-link">{{ page_num }}</span>
+      </li>
+      {% endif %}
+      {% else %}
+      <li class="page-item disabled"><span class="page-link">...</span></li>
+      {% endif %}
+      {% endfor %}
+
+      {% if pagination.has_next %}
+      <li class="page-item">
+          <a class="page-link" href="{{ url_for('show_product', page=pagination.next_num) }}">Next</a>
+      </li>
+      {% else %}
+      <li class="page-item disabled"><span class="page-link">Next</span></li>
+      {% endif %}
+  </ul>
+</nav>
+
 {% endblock %}

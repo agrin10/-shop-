@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from src import app 
-
+from src import db
 
 
 @app.route('/')
@@ -18,6 +18,7 @@ from src.product import urls
 if __name__ == "__main__":
     
     app.run(debug=True)
-    # db.create_all()
+    db.create_all()
+   
         
     

@@ -137,6 +137,47 @@ body {
   border-radius: 8px;
   cursor: pointer;
 }
+.img-container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* Adjust this value to control the aspect ratio */
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination a {
+  color: var(--primaryColor);
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+  border-radius: 4px;
+}
+
+.pagination a.active {
+  background-color: var(--primaryColor);
+  color: white;
+  border: 1px solid var(--primaryColor);
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
 
 /* ---------------End of Products ---------------- */
 

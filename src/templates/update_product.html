@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}upload{% endblock title %}
+
+    {% block content %}
+        <div class='add'>
+            <h1 style=" display: flex;flex-direction: row;justify-content: space-around;align-items: center;">add product</h1>
+            <form action="/add" method="POST" enctype="multipart/form-data" class='add_form'>
+                <label for="id_pro">the id of the product</label>
+                <input type="text" name="id_pro" id="id_pro">
+
+            </form>
+        </div>
+    {% endblock content %}

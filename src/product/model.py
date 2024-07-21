@@ -4,8 +4,6 @@ import uuid
 import json
 
 
-# required blog ==>>  https://blog.miguelgrinberg.com/post/handling-file-uploads-with-flas
-
 
 class Product(db.Model):
     __tablename__ = 'products'
@@ -19,3 +17,6 @@ class Product(db.Model):
 
     def toDict(self):
         return {c.name: str(getattr(self, c.name)) for c in self.__table__.columns}
+
+
+# required blog ==>>  https://blog.miguelgrinberg.com/post/handling-file-uploads-with-flas

@@ -9,17 +9,12 @@ from src import app
 import imghdr
 
 
-
-
 def retrieve_product_controller():
     response = []
     products_data_controller = Product.query.all()
     for product_data in products_data_controller:
         response.append(product_data.toDict())
     return {"data": response}
-
-
-
 
 def add_product():
     if request.is_json:
@@ -54,15 +49,17 @@ def updat_product(product_id):
         data = request.json
         product.title = data.get('title')
         product.price = data.get('price')
-        # product.image = data.get('image')
+        product.image = data.get('image')
 
         db.session.commit()
         return jsonify({"message": "Product updated successfully"})
     else:
         return {"message": "Invalid request format, requires JSON data"}, 400
+    
+
 
 def delete_product(product_id):
-    if request.is_json:  # Check if the request content type is JSON
+    if request.is_json: 
         product = Product.query.get(product_id)
         if not product:
             return {"message": "Product not found"}, 404

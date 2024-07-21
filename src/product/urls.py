@@ -20,15 +20,6 @@ def show_product():
     else:
         return "Invalid method. Only GET is supported for this route.", 405
 
-
-    # if request.method == 'GET':
-    #     data= retrieve_product_controller()
-    #     page = request.args.get('page', 1, type=int)  # Default to page 1 if not specified
-        # products = Product.query.paginate(page=page, per_page=4, error_out=False)
-
-    #     return render_template('product.html', product_data=data , pagination=products)
-    # else:
-    #     return "Invalid method. Only GET is supported for this route."
 # adding the product to the database
 @app.route('/add', methods=['POST', 'GET'])
 def adding_product():
@@ -45,7 +36,7 @@ def edit_product(product_id):
     if request.method == 'PUT':
         new_product_replaced = updat_product(product_id)
         return new_product_replaced
-    elif request.method =='GET':
+    else:
         return {"message" : "not allowed"}
     
 
@@ -54,7 +45,7 @@ def deleted_product(product_id):
     if request.method == 'DELETE':
         remove_product = delete_product(product_id)
         return remove_product
-    elif request.method == 'GET':
+    else:
         return {"message": "Method not allowed"}
 
 # # 404 error page

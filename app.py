@@ -11,10 +11,6 @@ def index():
 from src.product import urls
 
 
-# import src
-# print('asal',dir(src))
-# print('sfasefa',src.__file__)
-
 if __name__ == "__main__":
     
     app.run(debug=True)
